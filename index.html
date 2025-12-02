@@ -211,3 +211,237 @@
           </div>
 
           <div>
+            <label class="label">Objetivo principal</label>
+            <input
+              type="text"
+              id="profile-goal"
+              class="input"
+              placeholder="Ej: verse más ejecutivo, más juvenil, etc."
+            />
+          </div>
+
+          <button type="button" class="btn-primary w-full mt-2" onclick="saveProfile()">
+            Guardar perfil
+          </button>
+        </form>
+      </section>
+
+      <!-- IA DE ESTILO -->
+      <section id="view-style" class="view hidden px-4 pt-4 pb-6">
+        <h2 class="title">Proyección de estilo con IA</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          Sube una foto o captura en 3D (simulado), elige tu estilo y deja que B Ai te recomiende.
+        </p>
+
+        <div class="space-y-3">
+          <div>
+            <label class="label">Foto referencial</label>
+            <input
+              type="file"
+              id="style-photo"
+              accept="image/*"
+              class="input bg-[#101823] border border-[#223349] file:mr-2 file:py-1 file:px-3 file:rounded-full file:border-0 file:bg-red-600 file:text-xs file:text-white"
+            />
+          </div>
+
+          <div>
+            <label class="label">Zona a proyectar</label>
+            <select id="style-area" class="input">
+              <option value="">Selecciona</option>
+              <option value="corte">Corte de cabello</option>
+              <option value="barba">Barba</option>
+              <option value="color">Color</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label">Tipo de estilo personal</label>
+            <select id="style-personal" class="input">
+              <option value="">Usar el de mi perfil</option>
+              <option>Clásico</option>
+              <option>Moderno / contemporáneo</option>
+              <option>Casual / relajado</option>
+              <option>Formal / profesional</option>
+              <option>Urbano / street style</option>
+              <option>Hipster / bohemio</option>
+              <option>Minimalista</option>
+              <option>Elegante y sofisticado</option>
+              <option>Atrevido y experimental</option>
+            </select>
+          </div>
+
+          <button class="btn-primary w-full" onclick="generateAIStyle()">
+            Generar estilo con IA
+          </button>
+        </div>
+
+        <div id="style-result" class="mt-5 hidden">
+          <p class="text-xs text-[#90a9cb] mb-2 uppercase tracking-[0.2em]">Resultado IA</p>
+          <div class="rounded-2xl border border-[#223349] p-3">
+            <div id="style-result-image" class="w-full h-40 rounded-xl bg-cover bg-center mb-3 hidden"></div>
+            <p id="style-result-text" class="text-sm mb-3"></p>
+            <button
+              class="text-xs px-3 py-1 rounded-full border border-[#223349]"
+              onclick="saveCurrentStyle()"
+            >
+              Guardar este estilo en mi galería
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA -->
+      <section id="view-gallery" class="view hidden px-4 pt-4 pb-6">
+        <h2 class="title">Galería de estilos</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          Guarda tus looks favoritos y repite el que más te guste en tu próxima visita.
+        </p>
+
+        <div id="gallery-list" class="space-y-3"></div>
+
+        <p id="gallery-empty" class="text-xs text-center text-[#90a9cb] mt-4">
+          Aún no has guardado estilos. Genera uno con la IA.
+        </p>
+      </section>
+
+      <!-- RESERVAS -->
+      <section id="view-bookings" class="view hidden px-4 pt-4 pb-6">
+        <h2 class="title">Reservar servicio</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          (MVP) Simulación de reservas. Luego se conecta a AgendaPro.
+        </p>
+
+        <form id="form-booking" class="space-y-3">
+          <div>
+            <label class="label">Servicio</label>
+            <select id="booking-service" class="input">
+              <option>Corte ejecutivo</option>
+              <option>Corte + barba</option>
+              <option>Barba perfilada</option>
+              <option>Limpieza facial</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label">Profesional</label>
+            <select id="booking-barber" class="input">
+              <option value="">Cualquiera recomendado</option>
+              <option>Barbero 1</option>
+              <option>Barbero 2</option>
+              <option>Barbero 3</option>
+            </select>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="label">Fecha</label>
+              <input type="date" id="booking-date" class="input" />
+            </div>
+            <div class="w-28">
+              <label class="label">Hora</label>
+              <input type="time" id="booking-time" class="input" />
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary w-full" onclick="saveBooking()">
+            Confirmar reserva
+          </button>
+        </form>
+
+        <div class="mt-6">
+          <p class="text-xs text-[#90a9cb] mb-2">Tus próximas reservas</p>
+          <div id="booking-list" class="space-y-2"></div>
+        </div>
+      </section>
+
+      <!-- RECOMPENSAS -->
+      <section id="view-rewards" class="view hidden px-4 pt-4 pb-6">
+        <h2 class="title">Recompensas y créditos</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          Gana créditos por reservas y referidos. Canjéalos por servicios y productos.
+        </p>
+
+        <div class="rounded-2xl border border-[#223349] p-4 mb-4">
+          <p class="text-xs text-[#90a9cb] mb-1">Créditos disponibles</p>
+          <p id="rewards-credits" class="text-2xl font-bold mb-1">0</p>
+          <p id="rewards-level" class="text-xs text-[#90a9cb]">
+            Nivel: Básico
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-[#223349] p-4 mb-4">
+          <p class="text-xs text-[#90a9cb] mb-2">Por cantidad de referidos</p>
+          <ul class="text-xs list-disc pl-4 space-y-1 text-[#90a9cb]">
+            <li>1–3: Créditos básicos en servicios estándar.</li>
+            <li>4–6: Créditos extra + acceso a algunos servicios premium.</li>
+            <li>7+: Bonos especiales o servicios sin costo adicional.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-[#223349] p-4">
+          <p class="text-xs text-[#90a9cb] mb-1">Tu enlace de invitación</p>
+          <p id="rewards-ref-link" class="text-xs break-all mb-2">
+            https://bai.clasebusiness.cl/ref/tu-codigo
+          </p>
+          <button
+            class="text-xs px-3 py-1 rounded-full border border-[#223349]"
+            onclick="simulateReferral()"
+          >
+            Simular 1 referido (MVP)
+          </button>
+          <p id="rewards-ref-count" class="text-xs text-[#90a9cb] mt-2"></p>
+        </div>
+      </section>
+
+      <!-- TIENDA -->
+      <section id="view-store" class="view hidden px-0 pt-4 pb-6">
+        <h2 class="title">Tienda</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          Productos para mantener tu estilo en casa.
+        </p>
+
+        <div class="px-4 mb-3">
+          <input
+            id="store-search"
+            type="text"
+            placeholder="Buscar productos…"
+            class="input bg-[#182434]"
+            oninput="filterStore()"
+          />
+        </div>
+
+        <div id="store-grid" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+          <!-- productos desde JS -->
+        </div>
+
+        <div class="px-4 mt-2">
+          <p class="text-xs text-[#90a9cb]">Carrito: <span id="cart-count">0</span> productos</p>
+        </div>
+      </section>
+
+      <!-- NOTIFICACIONES -->
+      <section id="view-notifications" class="view hidden px-4 pt-4 pb-6">
+        <h2 class="title">Notificaciones y consejos</h2>
+        <p class="text-xs text-[#90a9cb] text-center mb-4">
+          Recordatorios de citas, recomendaciones de cuidado y promociones exclusivas.
+        </p>
+
+        <div id="notif-list" class="space-y-3"></div>
+      </section>
+
+    </main>
+
+    <!-- ========== NAV INFERIOR ========== -->
+    <nav class="bottom-nav">
+      <button onclick="showView('view-home')" id="tab-home" class="tab active">Home</button>
+      <button onclick="showView('view-style')" id="tab-style" class="tab">Estilos</button>
+      <button onclick="showView('view-bookings')" id="tab-bookings" class="tab">Reservas</button>
+      <button onclick="showView('view-store')" id="tab-store" class="tab">Tienda</button>
+      <button onclick="showView('view-profile')" id="tab-profile" class="tab">Perfil</button>
+    </nav>
+  </div>
+
+  <!-- JS -->
+  <script src="app.js"></script>
+</body>
+</html>
