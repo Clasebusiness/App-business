@@ -1,0 +1,36 @@
+.view {
+  padding-bottom: 80px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #cc0000;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.product-card {
+  background: #223349;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #182434;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #223349;
+}
