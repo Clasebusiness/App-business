@@ -4,11 +4,11 @@
 body {
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
+    #ffffff 5%,
     #fff5f5 40%,
     #ffffff 100%
   );
-  color: #0f172a;
+  color: ABABAB;
   font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
