@@ -1,99 +1,15 @@
+/* ================================
+   BASE GENERAL
+================================ */
+body {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 /* Espacio para que el contenido no quede tapado por la bottom-nav */
 .view {
-  padding-bottom: 80px;
-}
-
-/* Título genérico de cada vista */
-.title {
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 12px;
-}
-
-/* Botón rojo principal */
-.btn-primary {
-  background-color: #cc0000;
-  padding: 12px 20px;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-}
-
-/* Tarjetas del home */
-.home-card {
-  background: #182434;
-  border-radius: 16px;
-  padding: 12px;
-  border: 1px solid #223349;
-  text-align: left;
-}
-
-/* Inputs estándar */
-.input {
-  width: 100%;
-  border-radius: 12px;
-  background-color: #182434;
-  border: 1px solid #223349;
-  padding: 8px 12px;
-  font-size: 13px;
-  outline: none;
-}
-
-.input:focus {
-  border-color: #90a9cb;
-}
-
-/* Labels */
-.label {
-  display: block;
-  font-size: 12px;
-  color: #90a9cb;
-  margin-bottom: 4px;
-}
-
-/* Producto de tienda */
-.product-card {
-  background: #223349;
-  padding: 14px;
-  border-radius: 14px;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.04);
-  transition: transform 120ms ease, border-color 120ms ease;
-}
-.product-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.10);
-}
-
-/* Bottom nav fijo */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #182434;
-  padding: 8px 10px 10px;
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid #223349;
-  z-index: 20;
-}
-
-/* Botón de pestaña */
-.tab {
-  flex: 1;
-  font-size: 11px;
-  color: #90a9cb;
-  text-align: center;
-  padding: 6px 0;
-}
-
-/* Tab activa */
-.tab.active {
-  color: #ffffff;
-  font-weight: 600;
+  padding-bottom: 90px;
 }
 
 /* Ocultar vistas */
@@ -104,4 +20,141 @@
 /* Vista activa */
 .view.active {
   display: block;
+}
+
+/* ================================
+   TÍTULOS
+================================ */
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* ================================
+   BOTÓN PRINCIPAL
+================================ */
+.btn-primary {
+  background-color: #c1121f; /* rojo elegante */
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 150ms ease, transform 120ms ease;
+}
+
+.btn-primary:hover {
+  background-color: #a50f19;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* ================================
+   TARJETAS HOME
+================================ */
+.home-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ================================
+   INPUTS
+================================ */
+.input {
+  width: 100%;
+  border-radius: 14px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.input:focus {
+  border-color: #c1121f;
+  box-shadow: 0 0 0 2px rgba(193, 18, 31, 0.12);
+}
+
+/* ================================
+   LABELS
+================================ */
+.label {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+/* ================================
+   PRODUCTOS / TARJETAS TIENDA
+================================ */
+.product-card {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   BOTTOM NAV
+================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f8fafc; /* gris muy claro */
+  padding: 8px 10px 10px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(0, 0, 0, 0.2); /* línea fina negra */
+  z-index: 20;
+}
+
+/* ================================
+   TABS
+================================ */
+.tab {
+  flex: 1;
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+  padding: 6px 0;
+  transition: color 120ms ease;
+}
+
+.tab.active {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* ================================
+   TEXTOS AUXILIARES
+================================ */
+.text-muted {
+  color: #64748b;
 }
