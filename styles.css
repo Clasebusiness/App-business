@@ -1,107 +1,71 @@
-/* Espacio para que el contenido no quede tapado por la bottom-nav */
-.view {
-  padding-bottom: 80px;
+body {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: Manrope, system-ui;
 }
 
-/* Título genérico de cada vista */
+.view {
+  padding-bottom: 90px;
+}
+
+.hidden { display: none; }
+.view.active { display: block; }
+
 .title {
   font-size: 22px;
   font-weight: 700;
   text-align: center;
-  margin-top: 12px;
+  margin-bottom: 16px;
 }
 
-/* Botón rojo principal */
 .btn-primary {
-  background-color: #cc0000;
-  padding: 12px 20px;
-  border-radius: 9999px;
+  background: #c1121f;
+  color: white;
+  padding: 14px;
+  border-radius: 999px;
   font-weight: 600;
-  font-size: 14px;
-  text-align: center;
 }
 
-/* Tarjetas del home */
 .home-card {
-  background: #182434;
+  background: white;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: 12px;
-  border: 1px solid #223349;
-  text-align: left;
+  padding: 14px;
 }
 
-/* Inputs estándar */
 .input {
   width: 100%;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
-  background-color: #182434;
-  border: 1px solid #223349;
-  padding: 8px 12px;
-  font-size: 13px;
-  outline: none;
+  padding: 10px;
 }
 
-.input:focus {
-  border-color: #90a9cb;
-}
-
-/* Labels */
 .label {
-  display: block;
   font-size: 12px;
-  color: #90a9cb;
-  margin-bottom: 4px;
+  color: #64748b;
 }
 
-/* Producto de tienda */
-.product-card {
-  background: #223349;
-  padding: 14px;
-  border-radius: 14px;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.04);
-  transition: transform 120ms ease, border-color 120ms ease;
-}
-.product-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.10);
-}
-
-/* Bottom nav fijo */
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: #182434;
-  padding: 8px 10px 10px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(0,0,0,.15);
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #223349;
-  z-index: 20;
+  padding: 8px;
 }
 
-/* Botón de pestaña */
 .tab {
-  flex: 1;
   font-size: 11px;
-  color: #90a9cb;
-  text-align: center;
-  padding: 6px 0;
+  color: #64748b;
 }
 
-/* Tab activa */
 .tab.active {
-  color: #ffffff;
+  color: #0f172a;
   font-weight: 600;
 }
 
-/* Ocultar vistas */
-.hidden {
-  display: none;
-}
-
-/* Vista activa */
-.view.active {
-  display: block;
+.text-muted {
+  color: #64748b;
 }
