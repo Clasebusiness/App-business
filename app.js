@@ -1053,3 +1053,33 @@ function initApp() {
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+/* =========================
+   HOME UX CONTEXTUAL
+========================= */
+
+function goToPrimaryAction() {
+  const profile = loadFromStorage("bai-profile", {});
+  const gallery = loadFromStorage("bai-gallery", []);
+  const bookings = loadFromStorage("bai-bookings", []);
+
+  // 1️⃣ Usuario nuevo → completar perfil
+  if (!profile.style) {
+    showView("view-profile");
+    return;
+  }
+
+  // 2️⃣ Sin estilos → usar IA
+  if (gallery.length === 0) {
+    showView("view-style");
+    return;
+  }
+
+  // 3️⃣ Sin reservas → agendar
+  if (bookings.length === 0) {
+    showView("view-bookings");
+    return;
+  }
+
+  // 4️⃣ Usuario activo → galería
+  showView("view-gallery");
+}
