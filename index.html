@@ -18,6 +18,7 @@
   <!-- Tus estilos personalizados -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="bg-[#101823] text-white" style="font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
   <div id="app" class="min-h-screen flex flex-col">
 
@@ -47,8 +48,8 @@
           Proyectemos juntos<br /><span class="text-red-500">tu estilo.</span>
         </h1>
         <p class="text-sm text-[#90a9cb] mb-6">
-          B Ai utiliza inteligencia artificial para proyectar estilos de corte y barba
-          a partir de fotos o escaneos 3D. Visualiza el resultado antes de decidir.
+          B Ai utiliza inteligencia artificial (MVP simulado) para proyectar estilos de corte y barba
+          a partir de fotos. Visualiza el resultado antes de decidir.
         </p>
 
         <div class="rounded-2xl overflow-hidden mb-6 border border-[#223349]">
@@ -59,10 +60,7 @@
           />
         </div>
 
-        <button
-          class="btn-primary w-full mb-4"
-          onclick="goToAuth()"
-        >
+        <button class="btn-primary w-full mb-4" onclick="goToAuth()">
           Comenzar
         </button>
 
@@ -78,10 +76,7 @@
           Crea tu perfil para guardar tus estilos, reservas y recompensas.
         </p>
 
-        <button
-          class="btn-primary w-full mb-3"
-          onclick="fakeRegisterEmail()"
-        >
+        <button class="btn-primary w-full mb-3" onclick="fakeRegisterEmail()">
           Registrarme con email
         </button>
 
@@ -166,21 +161,12 @@
         <form id="form-profile" class="mt-4 space-y-3">
           <div>
             <label class="label">Nombre completo</label>
-            <input
-              type="text"
-              id="profile-name"
-              class="input"
-              placeholder="Ej: Jhon Hernández"
-            />
+            <input type="text" id="profile-name" class="input" placeholder="Ej: Jhon Hernández" />
           </div>
 
           <div>
             <label class="label">Fecha de cumpleaños</label>
-            <input
-              type="date"
-              id="profile-birthday"
-              class="input"
-            />
+            <input type="date" id="profile-birthday" class="input" />
           </div>
 
           <div>
@@ -212,12 +198,7 @@
 
           <div>
             <label class="label">Objetivo principal</label>
-            <input
-              type="text"
-              id="profile-goal"
-              class="input"
-              placeholder="Ej: verse más ejecutivo, más juvenil, etc."
-            />
+            <input type="text" id="profile-goal" class="input" placeholder="Ej: verse más ejecutivo, más juvenil, etc." />
           </div>
 
           <button type="button" class="btn-primary w-full mt-2" onclick="saveProfile()">
@@ -230,7 +211,7 @@
       <section id="view-style" class="view hidden px-4 pt-4 pb-6">
         <h2 class="title">Proyección de estilo con IA</h2>
         <p class="text-xs text-[#90a9cb] text-center mb-4">
-          Sube una foto o captura en 3D (simulado), elige tu estilo y deja que B Ai te recomiende.
+          Sube una foto, elige la zona y deja que B Ai (MVP) te recomiende.
         </p>
 
         <div class="space-y-3">
@@ -280,10 +261,7 @@
           <div class="rounded-2xl border border-[#223349] p-3">
             <div id="style-result-image" class="w-full h-40 rounded-xl bg-cover bg-center mb-3 hidden"></div>
             <p id="style-result-text" class="text-sm mb-3"></p>
-            <button
-              class="text-xs px-3 py-1 rounded-full border border-[#223349]"
-              onclick="saveCurrentStyle()"
-            >
+            <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="saveCurrentStyle()">
               Guardar este estilo en mi galería
             </button>
           </div>
@@ -296,6 +274,15 @@
         <p class="text-xs text-[#90a9cb] text-center mb-4">
           Guarda tus looks favoritos y repite el que más te guste en tu próxima visita.
         </p>
+
+        <div class="flex gap-2 mb-3">
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="clearGallery()">
+            Vaciar galería
+          </button>
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="exportGalleryJSON()">
+            Exportar JSON
+          </button>
+        </div>
 
         <div id="gallery-list" class="space-y-3"></div>
 
@@ -351,6 +338,9 @@
         <div class="mt-6">
           <p class="text-xs text-[#90a9cb] mb-2">Tus próximas reservas</p>
           <div id="booking-list" class="space-y-2"></div>
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349] mt-3" onclick="clearBookings()">
+            Borrar reservas (MVP)
+          </button>
         </div>
       </section>
 
@@ -364,32 +354,36 @@
         <div class="rounded-2xl border border-[#223349] p-4 mb-4">
           <p class="text-xs text-[#90a9cb] mb-1">Créditos disponibles</p>
           <p id="rewards-credits" class="text-2xl font-bold mb-1">0</p>
-          <p id="rewards-level" class="text-xs text-[#90a9cb]">
-            Nivel: Básico
-          </p>
+          <p id="rewards-level" class="text-xs text-[#90a9cb]">Nivel: Básico</p>
         </div>
 
         <div class="rounded-2xl border border-[#223349] p-4 mb-4">
           <p class="text-xs text-[#90a9cb] mb-2">Por cantidad de referidos</p>
           <ul class="text-xs list-disc pl-4 space-y-1 text-[#90a9cb]">
-            <li>1–3: Créditos básicos en servicios estándar.</li>
+            <li>1–3: Créditos básicos.</li>
             <li>4–6: Créditos extra + acceso a algunos servicios premium.</li>
-            <li>7+: Bonos especiales o servicios sin costo adicional.</li>
+            <li>7+: Bonos especiales.</li>
           </ul>
         </div>
 
         <div class="rounded-2xl border border-[#223349] p-4">
           <p class="text-xs text-[#90a9cb] mb-1">Tu enlace de invitación</p>
-          <p id="rewards-ref-link" class="text-xs break-all mb-2">
-            https://bai.clasebusiness.cl/ref/tu-codigo
-          </p>
-          <button
-            class="text-xs px-3 py-1 rounded-full border border-[#223349]"
-            onclick="simulateReferral()"
-          >
-            Simular 1 referido (MVP)
-          </button>
+          <p id="rewards-ref-link" class="text-xs break-all mb-2"></p>
+
+          <div class="flex gap-2">
+            <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="copyReferralLink()">
+              Copiar link
+            </button>
+            <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="simulateReferral()">
+              Simular 1 referido
+            </button>
+          </div>
+
           <p id="rewards-ref-count" class="text-xs text-[#90a9cb] mt-2"></p>
+
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349] mt-3" onclick="resetRewards()">
+            Reset recompensas (MVP)
+          </button>
         </div>
       </section>
 
@@ -400,7 +394,7 @@
           Productos para mantener tu estilo en casa.
         </p>
 
-        <div class="px-4 mb-3">
+        <div class="px-4 mb-3 space-y-2">
           <input
             id="store-search"
             type="text"
@@ -408,14 +402,39 @@
             class="input bg-[#182434]"
             oninput="filterStore()"
           />
+
+          <div class="flex gap-2">
+            <select id="store-category" class="input" onchange="filterStore()">
+              <option value="">Todas las categorías</option>
+              <option value="hair">Cabello</option>
+              <option value="beard">Barba</option>
+              <option value="accessories">Accesorios</option>
+            </select>
+
+            <select id="store-sort" class="input" onchange="filterStore()">
+              <option value="relevance">Orden: Relevancia</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+              <option value="name-asc">Nombre: A → Z</option>
+            </select>
+          </div>
         </div>
 
-        <div id="store-grid" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-          <!-- productos desde JS -->
-        </div>
+        <div id="store-grid" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4"></div>
 
         <div class="px-4 mt-2">
-          <p class="text-xs text-[#90a9cb]">Carrito: <span id="cart-count">0</span> productos</p>
+          <p class="text-xs text-[#90a9cb]">
+            Carrito: <span id="cart-count">0</span> productos
+          </p>
+
+          <div class="flex gap-2 mt-2">
+            <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="openCartModal()">
+              Ver carrito
+            </button>
+            <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="clearCart()">
+              Vaciar carrito
+            </button>
+          </div>
         </div>
       </section>
 
@@ -425,6 +444,15 @@
         <p class="text-xs text-[#90a9cb] text-center mb-4">
           Recordatorios de citas, recomendaciones de cuidado y promociones exclusivas.
         </p>
+
+        <div class="flex gap-2 mb-3">
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="addTestNotification()">
+            Agregar notificación (MVP)
+          </button>
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="clearNotifications()">
+            Borrar notificaciones
+          </button>
+        </div>
 
         <div id="notif-list" class="space-y-3"></div>
       </section>
@@ -439,6 +467,29 @@
       <button onclick="showView('view-store')" id="tab-store" class="tab">Tienda</button>
       <button onclick="showView('view-profile')" id="tab-profile" class="tab">Perfil</button>
     </nav>
+
+    <!-- ========== MODAL CARRITO ========== -->
+    <div id="cart-modal" class="hidden fixed inset-0 z-50">
+      <div class="absolute inset-0 bg-black/60" onclick="closeCartModal()"></div>
+      <div class="absolute bottom-0 left-0 right-0 bg-[#101823] border-t border-[#223349] rounded-t-2xl p-4">
+        <div class="flex items-center justify-between mb-2">
+          <p class="font-semibold">Tu carrito</p>
+          <button class="text-xs px-3 py-1 rounded-full border border-[#223349]" onclick="closeCartModal()">Cerrar</button>
+        </div>
+        <div id="cart-items" class="space-y-2 max-h-64 overflow-y-auto pr-1"></div>
+        <div class="mt-3 flex items-center justify-between">
+          <p class="text-sm text-[#90a9cb]">Total</p>
+          <p id="cart-total" class="text-lg font-bold"></p>
+        </div>
+        <button class="btn-primary w-full mt-3" onclick="checkoutMVP()">
+          Comprar (MVP)
+        </button>
+        <p class="text-[11px] text-[#90a9cb] text-center mt-2">
+          MVP: no cobra, solo simula compra y suma créditos.
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- JS -->
