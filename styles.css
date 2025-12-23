@@ -38,6 +38,11 @@
   border: 1px solid #223349;
   padding: 8px 12px;
   font-size: 13px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #90a9cb;
 }
 
 /* Labels */
@@ -51,9 +56,15 @@
 /* Producto de tienda */
 .product-card {
   background: #223349;
-  padding: 16px;
+  padding: 14px;
   border-radius: 14px;
   cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.10);
 }
 
 /* Bottom nav fijo */
@@ -76,6 +87,7 @@
   font-size: 11px;
   color: #90a9cb;
   text-align: center;
+  padding: 6px 0;
 }
 
 /* Tab activa */
@@ -89,7 +101,7 @@
   display: none;
 }
 
-/* Vista activa (solo helper visual, manejo real desde JS) */
+/* Vista activa */
 .view.active {
   display: block;
 }
