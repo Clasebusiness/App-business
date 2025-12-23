@@ -1,71 +1,107 @@
-body {
-  background: #ffffff;
-  color: #0f172a;
-  font-family: Manrope, system-ui;
-}
-
+/* Espacio para que el contenido no quede tapado por la bottom-nav */
 .view {
-  padding-bottom: 90px;
+  padding-bottom: 80px;
 }
 
-.hidden { display: none; }
-.view.active { display: block; }
-
+/* Título genérico de cada vista */
 .title {
   font-size: 22px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 16px;
+  margin-top: 12px;
 }
 
+/* Botón rojo principal */
 .btn-primary {
-  background: #c1121f;
-  color: white;
-  padding: 14px;
-  border-radius: 999px;
+  background-color: #cc0000;
+  padding: 12px 20px;
+  border-radius: 9999px;
   font-weight: 600;
+  font-size: 14px;
+  text-align: center;
 }
 
+/* Tarjetas del home */
 .home-card {
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: #182434;
   border-radius: 16px;
-  padding: 14px;
+  padding: 12px;
+  border: 1px solid #223349;
+  text-align: left;
 }
 
+/* Inputs estándar */
 .input {
   width: 100%;
-  border: 1px solid #cbd5e1;
   border-radius: 12px;
-  padding: 10px;
+  background-color: #182434;
+  border: 1px solid #223349;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
 }
 
+.input:focus {
+  border-color: #90a9cb;
+}
+
+/* Labels */
 .label {
+  display: block;
   font-size: 12px;
-  color: #64748b;
+  color: #90a9cb;
+  margin-bottom: 4px;
 }
 
+/* Producto de tienda */
+.product-card {
+  background: #223349;
+  padding: 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* Bottom nav fijo */
 .bottom-nav {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  background: #f8fafc;
-  border-top: 1px solid rgba(0,0,0,.15);
+  background: #182434;
+  padding: 8px 10px 10px;
   display: flex;
   justify-content: space-around;
-  padding: 8px;
+  border-top: 1px solid #223349;
+  z-index: 20;
 }
 
+/* Botón de pestaña */
 .tab {
+  flex: 1;
   font-size: 11px;
-  color: #64748b;
+  color: #90a9cb;
+  text-align: center;
+  padding: 6px 0;
 }
 
+/* Tab activa */
 .tab.active {
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 600;
 }
 
-.text-muted {
-  color: #64748b;
+/* Ocultar vistas */
+.hidden {
+  display: none;
+}
+
+/* Vista activa */
+.view.active {
+  display: block;
 }
