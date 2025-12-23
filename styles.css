@@ -2,24 +2,55 @@
    BASE GENERAL
 ================================ */
 body {
-  background: #ffffff;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fff5f5 40%,
+    #ffffff 100%
+  );
   color: #0f172a;
   font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Espacio para que el contenido no quede tapado por la bottom-nav */
+/* ================================
+   VISTAS
+================================ */
 .view {
   padding-bottom: 90px;
 }
 
-/* Ocultar vistas */
 .hidden {
   display: none;
 }
 
-/* Vista activa */
 .view.active {
   display: block;
+}
+
+/* ================================
+   HEADER / NAVBAR SUPERIOR
+================================ */
+header {
+  background: #111111;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header p {
+  color: #e5e7eb;
+}
+
+header button {
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+header button:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ================================
@@ -35,10 +66,12 @@ body {
 }
 
 /* ================================
-   BOTÓN PRINCIPAL
+   BOTONES
 ================================ */
+
+/* CTA principal */
 .btn-primary {
-  background-color: #c1121f; /* rojo elegante */
+  background-color: #c1121f;
   color: #ffffff;
   padding: 14px 20px;
   border-radius: 9999px;
@@ -56,11 +89,21 @@ body {
   transform: scale(0.97);
 }
 
+/* Botones secundarios */
+.btn-secondary {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
 /* ================================
-   TARJETAS HOME
+   TARJETAS HOME / CUADROS
 ================================ */
 .home-card {
-  background: #ffffff;
+  background: #f4f5f7;
   border-radius: 18px;
   padding: 14px;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -79,12 +122,12 @@ body {
 .input {
   width: 100%;
   border-radius: 14px;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
   padding: 10px 12px;
   font-size: 13px;
   outline: none;
-  transition: border-color 120ms ease, box-shadow 120ms ease;
+  color: #111827;
 }
 
 .input:focus {
@@ -93,20 +136,25 @@ body {
 }
 
 /* ================================
-   LABELS
+   LABELS / TEXTOS DE AYUDA
 ================================ */
 .label {
   display: block;
   font-size: 12px;
-  color: #64748b;
+  color: #374151;
   margin-bottom: 4px;
+}
+
+/* Textos descriptivos */
+.text-muted {
+  color: #4b5563;
 }
 
 /* ================================
    PRODUCTOS / TARJETAS TIENDA
 ================================ */
 .product-card {
-  background: #ffffff;
+  background: #f8f8f8;
   padding: 14px;
   border-radius: 16px;
   cursor: pointer;
@@ -127,34 +175,24 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #f8fafc; /* gris muy claro */
+  background: #f8fafc;
   padding: 8px 10px 10px;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid rgba(0, 0, 0, 0.2); /* línea fina negra */
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 20;
 }
 
-/* ================================
-   TABS
-================================ */
+/* Tabs */
 .tab {
   flex: 1;
   font-size: 11px;
-  color: #64748b;
+  color: #6b7280;
   text-align: center;
   padding: 6px 0;
-  transition: color 120ms ease;
 }
 
 .tab.active {
-  color: #0f172a;
+  color: #111827;
   font-weight: 600;
-}
-
-/* ================================
-   TEXTOS AUXILIARES
-================================ */
-.text-muted {
-  color: #64748b;
 }
