@@ -1,198 +1,167 @@
-/* ================================
-   BASE GENERAL
-================================ */
+/* ================== BASE ================== */
+:root {
+  --red-main: #cc0000;
+  --red-soft: #f5e6e6;
+  --black-main: #111111;
+  --gray-nav: #f5f5f5;
+  --gray-card: #fafafa;
+  --gray-border: #e0e0e0;
+  --text-main: #1a1a1a;
+  --text-muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
   background: linear-gradient(
     180deg,
-    #ffffff 5%,
-    #fff5f5 40%,
-    #ffffff 100%
+    #ffffff 0%,
+    var(--red-soft) 100%
   );
-  color: ABABAB;
-  font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* ================================
-   VISTAS
-================================ */
+/* ================== VISTAS ================== */
 .view {
   padding-bottom: 90px;
-}
-
-.hidden {
-  display: none;
 }
 
 .view.active {
   display: block;
 }
 
-/* ================================
-   HEADER / NAVBAR SUPERIOR
-================================ */
+.hidden {
+  display: none;
+}
+
+/* ================== HEADER / NAVBAR ================== */
 header {
-  background: #111111;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--gray-nav);
+  border-bottom: 1px solid #00000020;
 }
 
-header p {
-  color: #e5e7eb;
-}
-
-header button {
-  background: transparent;
-  color: #e5e7eb;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-}
-
-header button:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* ================================
-   TÍTULOS
-================================ */
+/* ================== TITULOS ================== */
 .title {
   font-size: 22px;
   font-weight: 700;
   text-align: center;
-  margin-top: 12px;
-  margin-bottom: 16px;
-  letter-spacing: -0.01em;
+  margin: 12px 0;
 }
 
-/* ================================
-   BOTONES
-================================ */
-
-/* CTA principal */
+/* ================== BOTONES ================== */
 .btn-primary {
-  background-color: #c1121f;
+  background: var(--red-main);
   color: #ffffff;
   padding: 14px 20px;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 14px;
-  text-align: center;
-  transition: background-color 150ms ease, transform 120ms ease;
+  border: none;
 }
 
-.btn-primary:hover {
-  background-color: #a50f19;
-}
-
-.btn-primary:active {
-  transform: scale(0.97);
-}
-
-/* Botones secundarios */
 .btn-secondary {
-  background: #f3f4f6;
-  color: #111827;
-  border: 1px solid #d1d5db;
-  padding: 12px;
-  border-radius: 12px;
+  background: var(--black-main);
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 9999px;
   font-size: 13px;
 }
 
-/* ================================
-   TARJETAS HOME / CUADROS
-================================ */
+/* ================== CARDS ================== */
 .home-card {
-  background: #f4f5f7;
-  border-radius: 18px;
+  background: var(--gray-card);
+  border-radius: 16px;
   padding: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-border);
   text-align: left;
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .home-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
-/* ================================
-   INPUTS
-================================ */
+/* ================== INPUTS ================== */
 .input {
   width: 100%;
-  border-radius: 14px;
-  background-color: #f9fafb;
-  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--gray-border);
   padding: 10px 12px;
-  font-size: 13px;
-  outline: none;
-  color: #111827;
+  font-size: 14px;
+  color: var(--text-main);
 }
 
 .input:focus {
-  border-color: #c1121f;
-  box-shadow: 0 0 0 2px rgba(193, 18, 31, 0.12);
+  outline: none;
+  border-color: var(--red-main);
 }
 
-/* ================================
-   LABELS / TEXTOS DE AYUDA
-================================ */
+/* ================== LABELS ================== */
 .label {
   display: block;
   font-size: 12px;
-  color: #374151;
+  color: var(--text-muted);
   margin-bottom: 4px;
 }
 
-/* Textos descriptivos */
-.text-muted {
-  color: #4b5563;
-}
-
-/* ================================
-   PRODUCTOS / TARJETAS TIENDA
-================================ */
+/* ================== PRODUCTOS ================== */
 .product-card {
-  background: #f8f8f8;
+  background: var(--gray-card);
   padding: 14px;
-  border-radius: 16px;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  border-radius: 14px;
+  border: 1px solid var(--gray-border);
+  transition: transform 0.15s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
-/* ================================
-   BOTTOM NAV
-================================ */
+/* ================== BOTTOM NAV ================== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #f8fafc;
-  padding: 8px 10px 10px;
+  background: #ffffff;
+  border-top: 1px solid #00000020;
+  padding: 8px 0;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 20;
 }
 
-/* Tabs */
 .tab {
-  flex: 1;
   font-size: 11px;
-  color: #6b7280;
+  color: var(--text-muted);
   text-align: center;
-  padding: 6px 0;
 }
 
 .tab.active {
-  color: #111827;
+  color: var(--red-main);
   font-weight: 600;
+}
+
+/* ================== VISAGISMO HERO ================== */
+.visagismo-box {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f2f2f2 100%
+  );
+  border-radius: 20px;
+  border: 1px solid var(--gray-border);
+  overflow: hidden;
+}
+
+.visagismo-box img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
